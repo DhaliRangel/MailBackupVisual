@@ -1,0 +1,30 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.mbv:mail-backup-visualizer >-------------------
+[INFO] Building MBV - Mail Backup Visualizer 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> javafx:0.0.8:run (default-cli) > process-classes @ mail-backup-visualizer >>>
+[WARNING] 6 problems were encountered while building the effective model for org.openjfx:javafx-controls:jar:21.0.2 during dependency collection step for project (use -X to see details)
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ mail-backup-visualizer ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 8 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ mail-backup-visualizer ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 27 source files with javac [debug release 21] to target\classes
+[INFO] /C:/workspace-mbv/mbv/src/main/java/com/mbv/service/IndexingService.java: Some input files use or override a deprecated API.
+[INFO] /C:/workspace-mbv/mbv/src/main/java/com/mbv/service/IndexingService.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] <<< javafx:0.0.8:run (default-cli) < process-classes @ mail-backup-visualizer <<<
+[INFO] 
+[INFO] 
+[INFO] --- javafx:0.0.8:run (default-cli) @ mail-backup-visualizer ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3 d 20:03 h
+[INFO] Finished at: 2026-10-21T18:06:39+02:00
+[INFO] ------------------------------------------------------------------------

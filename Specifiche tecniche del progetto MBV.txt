@@ -1,0 +1,571 @@
+Specifiche tecniche del progetto MBV (mail backup visualizer)
+
+
+L'applicazione desktop Java dovrà permettere di:
+
+importare uno o più file .mbox
+indicizzare tutte le email
+effettuare ricerche praticamente istantanee
+visualizzare il contenuto completo delle email
+filtrare per decine di criteri
+gestire archivi anche da decine di GB
+
+L'obiettivo è che l'importazione possa richiedere alcuni minuti, ma che successivamente le ricerche siano quasi istantanee.
+
+Nuovo nome del progetto
+
+Ad esempio:
+
+Mail Explorer
+Mail Search Desktop
+Mail Archive Explorer
+Mail Finder
+MailVault
+MBox Explorer ⭐
+Java Mail Explorer ⭐
+Stack tecnologico
+Linguaggio
+
+Java 21 LTS
+
+UI
+
+JavaFX
+
+Per avere una vera Desktop Application moderna.
+
+Database locale
+
+Invece di leggere il file MBOX ad ogni ricerca, conviene creare un indice locale.
+
+Possibili soluzioni:
+
+SQLite
+
+Contiene:
+
+metadata
+indice
+preferiti
+configurazione
+
+oppure
+
+Apache Lucene ⭐⭐⭐⭐⭐
+
+È probabilmente la scelta migliore.
+
+Lucene è il motore utilizzato anche da Elasticsearch.
+
+Permette ricerche:
+
+Full Text
+fuzzy
+wildcard
+phrase search
+ranking
+evidenziazione
+velocissime
+
+Anche con milioni di email.
+
+Processo
+MBOX
+
+↓
+
+Parser MIME
+
+↓
+
+Indicizzazione
+
+↓
+
+Lucene Index
+
+↓
+
+Ricerca
+
+L'MBOX viene letto una sola volta.
+
+Successivamente tutte le ricerche vengono effettuate sull'indice.
+
+Campi indicizzati
+
+Praticamente tutto.
+
+Data invio
+Data ricezione
+Mittente
+
+Nome
+
+Email
+
+Destinatario
+
+Nome
+
+Email
+
+CC
+BCC
+Oggetto
+Corpo email
+
+Plain text
+
+HTML
+
+Allegati
+
+Nome file
+
+Tipo
+
+Dimensione
+
+Numero allegati
+
+Message-ID
+In-Reply-To
+References
+Thread
+
+Ricostruzione automatica della conversazione.
+
+Dominio mittente
+
+gmail.com
+
+outlook.com
+
+azienda.it
+
+Dominio destinatario
+Dimensione email
+Priorità
+
+Alta
+
+Normale
+
+Bassa
+
+Flag
+
+Letta
+
+Non letta
+
+Importante
+
+Bozza
+
+Risposta
+
+Inoltrata
+
+Tag Gmail
+
+Quando presenti.
+
+Etichette
+Cartella origine
+
+Inbox
+
+Sent
+
+Spam
+
+Trash
+
+Archive
+
+Charset
+MIME Type
+Numero allegati
+Estensione allegati
+
+pdf
+
+docx
+
+xlsx
+
+zip
+
+jpg
+
+png
+
+Hash allegati
+
+Per individuare duplicati.
+
+Dimensione allegati
+Ricerca
+
+Ricerca Google-like.
+
+Esempio
+
+spring boot mongodb
+
+oppure
+
+"NullPointerException"
+
+oppure
+
+from:mario@gmail.com
+
+oppure
+
+subject:fattura
+
+oppure
+
+attachment:pdf
+
+oppure
+
+after:2025-01-01
+
+oppure
+
+before:2025-03-01
+
+oppure
+
+has:attachment
+
+oppure
+
+body:"spring security"
+Filtri
+
+Data
+
+Mittente
+
+Destinatario
+
+Dominio
+
+Oggetto
+
+Dimensione
+
+Numero allegati
+
+Tipo allegato
+
+Contiene immagini
+
+Contiene PDF
+
+Contiene ZIP
+
+Solo email con allegati
+
+Solo conversazioni
+
+Solo email senza risposta
+
+Solo email con risposta
+
+Solo HTML
+
+Solo testo
+
+Preview
+
+Tre pannelli.
+
+──────────────────────────────────────────────────────────────
+
+Toolbar
+
+──────────────────────────────────────────────────────────────
+
+Filtri
+
+──────────────────────────────────────────────────────────────
+
+Lista Email
+
+──────────────────────────────────────────────────────────────
+
+Anteprima completa
+
+──────────────────────────────────────────────────────────────
+
+Come Outlook.
+
+Viewer
+
+Mostra
+
+Header
+
+Corpo HTML
+
+Corpo testo
+
+Allegati
+
+Header SMTP
+
+Header MIME
+
+Raw Message
+
+Tema
+
+Come dicevi.
+
+White
+
+Molto pulito
+
+Bianco
+
+Blu
+
+Arancione
+
+Verde
+
+Material Design minimal.
+
+Dark
+
+Blu notte
+
+Verde petrolio
+
+Arancione
+
+Bianco
+
+Con forte contrasto.
+
+Librerie
+
+JavaMail (Jakarta Mail)
+
+lettura MBOX
+
+Apache James Mime4J
+
+parser MIME
+
+Apache Lucene ⭐
+
+motore di ricerca
+
+JavaFX
+
+interfaccia
+
+ControlsFX
+
+componenti avanzati
+
+RichTextFX
+
+highlight
+
+Jackson
+
+JSON
+
+SQLite JDBC
+
+configurazione
+
+Funzionalità future
+Apertura contemporanea di più archivi MBOX.
+Aggiornamento incrementale dell'indice quando viene importato un nuovo export.
+Rilevamento automatico di email duplicate tramite Message-ID e hash degli allegati.
+Esportazione dei risultati in CSV, Excel, PDF ed EML.
+Ricerca salvata e smart folders (es. "Email con PDF ricevute nell'ultimo anno").
+Dashboard con statistiche (mittenti più frequenti, volume per anno, distribuzione degli allegati, domini più utilizzati).
+Timeline delle conversazioni e ricostruzione grafica dei thread.
+Supporto a formati aggiuntivi come PST, OST, EML, MSG e Maildir tramite parser dedicati.
+OCR sugli allegati PDF e immagini per renderli ricercabili (funzionalità opzionale).
+Indicizzazione cifrata dell'archivio locale per proteggere dati sensibili.
+Una caratteristica che aggiungerei
+
+Se l'obiettivo è realizzare uno strumento "professionale" per sviluppatori e utenti avanzati, aggiungerei un'architettura in due fasi:
+
+Importazione/indicizzazione: il file .mbox viene letto una sola volta, vengono estratti metadati, testo, allegati e thread, quindi tutto viene indicizzato con Apache Lucene.
+Consultazione: tutte le ricerche avvengono sull'indice locale, senza rileggere il file MBOX.
+
+Questa architettura permette di gestire archivi con centinaia di migliaia o milioni di email mantenendo tempi di risposta dell'ordine dei millisecondi, rendendo l'applicazione estremamente reattiva anche su hardware non particolarmente potente.
+
+anche altri formati mail
+
+Sì, e ti consiglio di progettarlo fin dall'inizio come un "Mail Archive Explorer", non come un semplice visualizzatore MBOX. In questo modo l'architettura sarà estendibile tramite parser e potrai aggiungere nuovi formati senza modificare il motore di ricerca.
+
+Formati supportati
+Formati principali
+Formato	Descrizione	Priorità
+MBOX	Gmail Takeout, Thunderbird, Apple Mail	⭐⭐⭐⭐⭐
+EML	Singola email RFC 822	⭐⭐⭐⭐⭐
+EMLX	Apple Mail	⭐⭐⭐⭐
+Maildir	Formato Linux (Dovecot, Postfix, Courier)	⭐⭐⭐⭐
+MSG	Microsoft Outlook (.msg)	⭐⭐⭐⭐
+PST	Archivio Outlook	⭐⭐⭐⭐⭐
+OST	Cache Outlook Offline	⭐⭐⭐
+MHT/MHTML	Email salvata come pagina web	⭐⭐
+Import multipli
+
+L'utente può importare:
+
+un singolo file
+più file contemporaneamente
+un'intera cartella
+una directory con sottocartelle
+archivi compressi
+
+Ad esempio:
+
+Import
+
+✓ mailbox.mbox
+
+✓ Outlook.pst
+
+✓ Backup/
+
+✓ ArchivioMail/
+
+✓ Email/*.eml
+
+Durante l'import il sistema riconosce automaticamente il formato.
+
+File compressi
+
+Supporto diretto a:
+
+ZIP
+7z
+TAR
+TAR.GZ
+GZIP
+
+Senza estrazione manuale.
+
+Parser Architecture
+
+L'architettura potrebbe essere plugin-based.
+
+Importer
+
+↓
+
+Parser Factory
+
+↓
+
+MBOX Parser
+
+EML Parser
+
+MSG Parser
+
+PST Parser
+
+Maildir Parser
+
+↓
+
+Mail Object
+
+↓
+
+Indexer (Lucene)
+
+In questo modo aggiungere un nuovo formato significa semplicemente implementare una nuova interfaccia.
+
+public interface MailParser {
+
+    boolean supports(Path file);
+
+    Stream<MailMessage> parse(Path file);
+
+}
+Librerie consigliate
+Libreria	Utilizzo
+Jakarta Mail	MIME, EML
+Apache James Mime4J	Parsing MIME avanzato
+Apache POI HSMF	File Outlook MSG
+libpst Java wrapper / java-libpst	File PST
+Apache Commons Compress	ZIP, TAR, GZIP
+SevenZipJBinding	7z
+Apache Lucene	Indicizzazione e ricerca
+SQLite	Configurazione e metadati
+JavaFX	UI Desktop
+Ricerca unificata
+
+L'utente non deve sapere da quale archivio proviene l'email.
+
+Ad esempio:
+
+spring boot mongodb
+
+può trovare risultati contemporaneamente in:
+
+Gmail (.mbox)
+Outlook (.pst)
+Thunderbird (.mbox)
+cartella di file .eml
+file .msg
+
+Tutto in un'unica vista.
+
+Metadati aggiuntivi
+
+Ogni email dovrebbe conservare anche:
+
+Archivio di provenienza
+Tipo archivio (MBOX, PST, EML...)
+Percorso originale
+Cartella originale (Inbox, Sent, Archive...)
+Data importazione
+Versione indice
+Hash dell'email
+Hash degli allegati
+Stato dell'indicizzazione
+Formati di esportazione
+
+Dopo una ricerca sarà possibile esportare i risultati in:
+
+EML
+MBOX
+PDF
+HTML
+TXT
+CSV
+JSON
+ZIP
+Stampa diretta
+Visione del progetto
+
+Con queste caratteristiche il progetto non sarebbe più un semplice visualizzatore di email, ma un motore di ricerca desktop per archivi di posta elettronica, progettato per gestire grandi volumi di dati in locale.
+
+I pilastri del progetto sarebbero:
+
+Java 21 + JavaFX per un'applicazione desktop nativa, moderna e performante.
+Apache Lucene per ricerche full-text quasi istantanee anche su milioni di email.
+Architettura modulare a plugin, che consente di aggiungere facilmente il supporto a nuovi formati di archiviazione.
+Indicizzazione locale separata dagli archivi originali, evitando di modificare i file sorgente e garantendo prestazioni elevate.
+Interfaccia minimale con temi Light e Dark, pensata per l'uso quotidiano e orientata alla produttività.
+Scalabilità, con supporto a più archivi contemporaneamente, ricerca trasversale, filtri avanzati e gestione efficiente di archivi di decine di gigabyte.
+
+Questa impostazione rende il software utilizzabile sia da sviluppatori sia da utenti professionali (amministratori di sistema, consulenti IT, studi legali, auditor e analisti) che hanno la necessità di consultare rapidamente grandi archivi di posta elettronica senza dipendere dal client originale (Outlook, Thunderbird, Gmail, ecc.).

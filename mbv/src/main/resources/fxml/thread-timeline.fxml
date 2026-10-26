@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mbv.ui.controller.ThreadTimelineController"
+            fx:id="threadTimelineRoot">
+
+    <top>
+        <VBox spacing="4" styleClass="thread-header">
+            <padding><Insets top="8" right="8" bottom="4" left="8"/></padding>
+            <Label fx:id="threadSubjectLabel" styleClass="thread-subject-label" wrapText="true"
+                   style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+            <Label fx:id="threadCountLabel" styleClass="thread-count-label"/>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fx:id="timelineScrollPane" fitToWidth="true">
+            <VBox fx:id="timelineContainer" spacing="4">
+                <padding><Insets top="8" right="8" bottom="8" left="8"/></padding>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

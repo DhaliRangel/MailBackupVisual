@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.mbv.ui.controller.FilterBarController"
+      fx:id="filterBarRoot"
+      alignment="CENTER_LEFT"
+      spacing="8"
+      styleClass="filter-bar">
+    <padding><Insets top="4" right="8" bottom="4" left="8"/></padding>
+
+    <Label text="Filters:" styleClass="filter-label"/>
+
+    <Label text="From:"/>
+    <TextField fx:id="senderFilter" promptText="sender@email.com" prefWidth="150"/>
+
+    <Label text="To:"/>
+    <TextField fx:id="recipientFilter" promptText="recipient@email.com" prefWidth="150"/>
+
+    <Label text="Domain:"/>
+    <TextField fx:id="domainFilter" promptText="gmail.com" prefWidth="100"/>
+
+    <Label text="After:"/>
+    <DatePicker fx:id="afterDatePicker" prefWidth="130"/>
+
+    <Label text="Before:"/>
+    <DatePicker fx:id="beforeDatePicker" prefWidth="130"/>
+
+    <Label text="Folder:"/>
+    <ComboBox fx:id="folderFilter" prefWidth="100"/>
+
+    <CheckBox fx:id="hasAttachmentFilter" text="Has Attachment"/>
+    <CheckBox fx:id="htmlOnlyFilter" text="HTML Only"/>
+    <CheckBox fx:id="textOnlyFilter" text="Text Only"/>
+
+    <Button fx:id="applyFiltersBtn" text="Apply" styleClass="filter-btn"/>
+    <Button fx:id="clearFiltersBtn" text="Clear" styleClass="filter-btn"/>
+</HBox>

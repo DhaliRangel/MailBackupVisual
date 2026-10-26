@@ -1,0 +1,142 @@
+/* MBV - Dark Teal */
+
+.root {
+    -fx-base: #0a1628;
+    -fx-background: #0a1628;
+    -fx-control-inner-background: #121e33;
+    -fx-accent: #3fb950;
+    -fx-focus-color: #3fb950;
+    -fx-faint-focus-color: #3fb95022;
+    -fx-font-family: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+    -fx-font-size: 13px;
+    -fx-text-fill: #c9d1d9;
+    -fx-selection-bar: #238636;
+    -fx-selection-bar-non-focused: #121e33;
+}
+
+.label { -fx-text-fill: #c9d1d9; }
+.text { -fx-fill: #c9d1d9; }
+
+.tool-bar {
+    -fx-background-color: #121e33;
+    -fx-border-color: #1c3250;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 6 12;
+}
+
+.toolbar-btn {
+    -fx-background-color: #1c3250;
+    -fx-text-fill: #c9d1d9;
+    -fx-background-radius: 6;
+    -fx-padding: 6 14;
+    -fx-cursor: hand;
+    -fx-font-size: 12px;
+}
+.toolbar-btn:hover { -fx-background-color: #253d5e; }
+.toolbar-btn:pressed { -fx-background-color: #238636; }
+
+.search-field {
+    -fx-background-color: #0a1628;
+    -fx-border-color: #1c3250;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16;
+    -fx-text-fill: #c9d1d9;
+    -fx-prompt-text-fill: #3d5a80;
+}
+.search-field:focused { -fx-border-color: #3fb950; -fx-border-width: 1.5; }
+
+.filter-bar {
+    -fx-background-color: #0a1628;
+    -fx-border-color: #1c3250;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 6 12;
+}
+.filter-label { -fx-text-fill: #3d5a80; -fx-font-size: 11px; -fx-font-weight: bold; }
+.filter-btn {
+    -fx-background-color: #1c3250;
+    -fx-text-fill: #c9d1d9;
+    -fx-background-radius: 6;
+    -fx-padding: 4 12;
+    -fx-cursor: hand;
+}
+.filter-btn:hover { -fx-background-color: #253d5e; }
+
+.email-list-view { -fx-background-color: #0a1628; -fx-border-color: #1c3250; }
+.list-cell {
+    -fx-background-color: #0a1628;
+    -fx-text-fill: #c9d1d9;
+    -fx-padding: 10 14;
+    -fx-border-color: transparent transparent #1c3250 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.list-cell:hover { -fx-background-color: #121e33; }
+.list-cell:selected { -fx-background-color: #23863622; -fx-border-color: transparent transparent #23863644 transparent; }
+
+.email-subject { -fx-font-size: 13px; -fx-text-fill: #e6edf3; }
+.email-date { -fx-font-size: 11px; -fx-text-fill: #3d5a80; }
+.email-from { -fx-font-size: 12px; -fx-text-fill: #6e8bb5; }
+.email-preview { -fx-font-size: 11px; -fx-text-fill: #3d5a80; -fx-wrap-text: true; }
+.unread-indicator { -fx-text-fill: #3fb950; -fx-font-size: 8px; }
+.attachment-indicator { -fx-font-size: 11px; -fx-text-fill: #d29922; }
+
+.email-header { -fx-background-color: #121e33; -fx-border-color: #1c3250; -fx-border-width: 0 0 1 0; }
+.email-subject-label { -fx-text-fill: #e6edf3; -fx-font-size: 18px; }
+.email-from-label { -fx-text-fill: #3fb950; -fx-font-size: 13px; }
+.email-date-label { -fx-text-fill: #3d5a80; -fx-font-size: 12px; }
+.email-to-label, .email-folder-label { -fx-text-fill: #3d5a80; -fx-font-size: 12px; }
+.email-to-value, .email-folder-value { -fx-text-fill: #6e8bb5; -fx-font-size: 12px; }
+
+.tab-pane .tab-header-area { -fx-background-color: #0a1628; }
+.tab-pane .tab { -fx-background-color: transparent; -fx-border-color: transparent transparent #1c3250 transparent; -fx-border-width: 0 0 2 0; -fx-padding: 8 16; }
+.tab-pane .tab:selected { -fx-border-color: transparent transparent #3fb950 transparent; }
+.tab-pane .tab-label { -fx-text-fill: #3d5a80; -fx-font-size: 12px; }
+.tab-pane .tab:selected .tab-label { -fx-text-fill: #e6edf3; }
+
+.text-area {
+    -fx-background-color: #0a1628;
+    -fx-text-fill: #c9d1d9;
+    -fx-border-color: #1c3250;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+.text-area .content { -fx-background-color: #0a1628; }
+
+.web-view { -fx-background-color: #0a1628; }
+
+.combo-box { -fx-background-color: #1c3250; -fx-border-color: #253d5e; -fx-border-radius: 6; -fx-background-radius: 6; }
+.combo-box .list-cell { -fx-text-fill: #c9d1d9; -fx-background-color: #1c3250; -fx-border-color: transparent; }
+.combo-box-popup .list-view { -fx-background-color: #121e33; -fx-border-color: #253d5e; }
+.combo-box-popup .list-cell { -fx-background-color: #121e33; -fx-text-fill: #c9d1d9; }
+.combo-box-popup .list-cell:hover { -fx-background-color: #23863622; }
+
+.date-picker { -fx-background-color: #1c3250; -fx-border-color: #253d5e; -fx-border-radius: 6; -fx-background-radius: 6; }
+.date-picker .text-field { -fx-background-color: #1c3250; -fx-text-fill: #c9d1d9; -fx-border-color: transparent; }
+
+.check-box { -fx-text-fill: #6e8bb5; -fx-font-size: 12px; }
+.check-box .box { -fx-background-color: #1c3250; -fx-border-color: #253d5e; -fx-border-radius: 3; }
+.check-box:selected .box { -fx-background-color: #238636; -fx-border-color: #238636; }
+.check-box:selected .mark { -fx-background-color: white; }
+
+.scroll-bar { -fx-background-color: transparent; }
+.scroll-bar .thumb { -fx-background-color: #253d5e; -fx-background-radius: 4; }
+.scroll-bar .thumb:hover { -fx-background-color: #3d5a80; }
+.scroll-bar .increment-button, .scroll-bar .decrement-button { -fx-background-color: transparent; -fx-padding: 0; }
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow { -fx-shape: " "; -fx-padding: 0; }
+
+.split-pane { -fx-background-color: #0a1628; }
+.split-pane .divider { -fx-background-color: #1c3250; }
+.split-pane .divider:hover { -fx-background-color: #253d5e; }
+
+.progress-bar .bar { -fx-background-color: #1c3250; }
+.progress-bar .progress { -fx-background-color: #3fb950; }
+
+.count-label { -fx-text-fill: #3d5a80; -fx-font-size: 11px; }
+
+.timeline-sender { -fx-text-fill: #e6edf3; }
+.timeline-date { -fx-text-fill: #3d5a80; -fx-font-size: 11px; }
+.timeline-preview { -fx-text-fill: #6e8bb5; -fx-font-size: 12px; -fx-wrap-text: true; }
+.timeline-attachment { -fx-text-fill: #d29922; -fx-font-size: 11px; }
+
+.scroll-pane { -fx-background-color: #0a1628; -fx-border-color: transparent; }
+.scroll-pane > .viewport { -fx-background-color: #0a1628; }

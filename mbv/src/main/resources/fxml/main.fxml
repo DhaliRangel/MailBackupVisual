@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mbv.ui.controller.MainController"
+            fx:id="rootPane"
+            prefWidth="1280" prefHeight="800">
+
+    <top>
+        <VBox>
+            <!-- Toolbar -->
+            <ToolBar fx:id="toolbar">
+                <Button text="Import Files" onAction="#onImportFiles" styleClass="toolbar-btn"/>
+                <Button text="Import Folder" onAction="#onImportFolder" styleClass="toolbar-btn"/>
+                <Separator/>
+                <TextField fx:id="searchField" promptText="Search emails (Google-like syntax...)"
+                           prefWidth="400" styleClass="search-field"/>
+                <Button text="Search" onAction="#performSearch" styleClass="toolbar-btn"/>
+                <Separator/>
+                <Button text="Export CSV" onAction="#onExportCsv" styleClass="toolbar-btn"/>
+                <Button text="Export EML" onAction="#onExportEml" styleClass="toolbar-btn"/>
+                <Button text="Export PDF" onAction="#onExportPdf" styleClass="toolbar-btn"/>
+                <Separator/>
+                <Label text="Theme:"/>
+                <ComboBox fx:id="themeSelector" prefWidth="120"/>
+                <Pane HBox.hgrow="ALWAYS"/>
+                <ProgressBar fx:id="progressBar" prefWidth="200" visible="false"/>
+                <Label fx:id="statusLabel" text="Ready"/>
+            </ToolBar>
+
+            <!-- Filter Bar -->
+            <fx:include fx:id="filterBar" source="filter-bar.fxml"/>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane fx:id="mainSplitPane" dividerPositions="0.35, 0.75" orientation="HORIZONTAL">
+            <!-- Email List -->
+            <fx:include fx:id="emailList" source="email-list.fxml"/>
+
+            <!-- Email Viewer -->
+            <fx:include fx:id="emailViewer" source="email-viewer.fxml"/>
+        </SplitPane>
+    </center>
+
+</BorderPane>

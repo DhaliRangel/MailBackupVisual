@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mbv.ui.controller.EmailViewerController"
+            fx:id="emailViewerRoot">
+
+    <top>
+        <VBox styleClass="email-header" spacing="4">
+            <padding><Insets top="12" right="12" bottom="8" left="12"/></padding>
+            <Label fx:id="subjectLabel" styleClass="email-subject-label" wrapText="true" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <HBox spacing="16" alignment="CENTER_LEFT">
+                <Label fx:id="fromLabel" styleClass="email-from-label"/>
+                <Label fx:id="dateLabel" styleClass="email-date-label"/>
+            </HBox>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="To:" styleClass="email-to-label"/>
+                <Label fx:id="toLabel" styleClass="email-to-value"/>
+            </HBox>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Folder:" styleClass="email-folder-label"/>
+                <Label fx:id="folderLabel" styleClass="email-folder-value"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="viewerTabPane">
+            <Tab fx:id="bodyTab" text="Body">
+                <content>
+                    <SplitPane orientation="VERTICAL" dividerPositions="0.5">
+                        <WebView fx:id="htmlWebView"/>
+                        <TextArea fx:id="plainBodyArea"
+                                  editable="false"
+                                  wrapText="true"
+                                  styleClass="body-text-area"/>
+                    </SplitPane>
+                </content>
+            </Tab>
+            <Tab fx:id="headerTab" text="Headers">
+                <content>
+                    <TextArea fx:id="headerArea"
+                              editable="false"
+                              wrapText="true"
+                              styleClass="header-text-area"
+                              style="-fx-font-family: monospace;"/>
+                </content>
+            </Tab>
+            <Tab fx:id="attachmentsTab" text="Attachments">
+                <content>
+                    <ListView fx:id="attachmentsList"
+                              styleClass="attachments-list"/>
+                </content>
+            </Tab>
+            <Tab fx:id="rawTab" text="Raw">
+                <content>
+                    <TextArea fx:id="rawArea"
+                              editable="false"
+                              wrapText="true"
+                              styleClass="raw-text-area"
+                              style="-fx-font-family: monospace;"/>
+                </content>
+            </Tab>
+        </TabPane>
+    </center>
+
+</BorderPane>

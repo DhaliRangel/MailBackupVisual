@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mbv.ui.controller.EmailListController"
+            fx:id="emailListRoot">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="8" styleClass="email-list-header">
+            <padding><Insets top="8" right="8" bottom="8" left="8"/></padding>
+            <Label fx:id="countLabel" text="0 messages" styleClass="count-label"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ListView fx:id="emailListView"
+                  prefWidth="400"
+                  styleClass="email-list-view"/>
+    </center>
+
+</BorderPane>
