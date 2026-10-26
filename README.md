@@ -1,4 +1,4 @@
-# MBV - Mail Backup Visualizer
+# Mail Backup Visual
 
 Desktop email archive explorer with Apache Lucene-powered full-text search.
 

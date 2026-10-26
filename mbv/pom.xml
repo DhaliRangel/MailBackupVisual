@@ -16,7 +16,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>MBV - Mail Backup Visualizer</name>
+    <name>Mail Backup Visual</name>
     <description>Desktop email archive explorer with Lucene-powered full-text search</description>
 
     <properties>

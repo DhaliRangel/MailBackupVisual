@@ -1,4 +1,4 @@
-# Guida Utente - MBV (Mail Backup Visualizer)
+# Guida Utente - Mail Backup Visual
 
 ## 1. Cos'è MBV
 MBV è un visualizzatore desktop per archivi email (formati MBOX ed EML) con indicizzazione full-text basata su Apache Lucene. Permette di importare grandi archivi, cercare istantaneamente, ricostruire conversazioni e filtrare i messaggi.
