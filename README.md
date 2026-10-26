@@ -15,3 +15,6 @@ Il codice sorgente è in `mbv/` (vedi `mbv/README.md` per dettagli completi).
 
 ## Note sui dati
 L'app salva indice Lucene in `mbv-index/` e cache SQLite in `mbv-cache.db` nella directory di lavoro corrente. Per una distribuzione standalone è consigliabile mantenere questi percorsi relativi o configurabili.
+
+## Licenza
+MIT License - Copyright (c) 2026 Dhali Rangel. Vedi [LICENSE](LICENSE).
